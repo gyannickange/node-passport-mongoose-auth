@@ -1,0 +1,47 @@
+{% extends "../layout/auth.html" %}
+
+{% block content %}
+  <div class="col-md-10 col-lg-10 mx-auto mt-5 mt-lg-0">
+    <div class="px-3 pb-3">
+      {% include "alert.html" %}
+      <form class="mt-5" action="/register?_csrf={{csrfToken}}" method="post">
+        <div class="mb-7">
+          <h2 class="h3 text-primary font-weight-normal mb-0">Welcome back</h2>
+          <p>Log in to manage your account.</p>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="form-label" for="firstnameInput">First name</label>
+            <input type="text" class="form-control" name="firstname" id="firstnameInput" placeholder="Entrez votre lastname" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="form-label" for="lastnameInput">Last name</label>
+            <input type="text" class="form-control" name="lastname" id="lastnameInput" placeholder="Enter your firstname" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="form-label" for="usernameInput">Email</label>
+            <input type="text" class="form-control" name="email" id="usernameInput" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="form-label" for="passwordInput">
+              Password
+            </label>
+            <input type="password" class="form-control" name="password" id="passwordInput" placeholder="********" required>
+          </div>
+        </div>
+        
+        <div class="row align-items-center mb-5">
+          <div class="col-5 col-sm-6">
+            <span class="small text-muted">Already have an account?</span>
+            <a class="small" href="/login">Login</a>
+          </div>
+
+          <div class="col-7 col-sm-6 text-right">
+            <button type="submit" class="btn btn-primary transition-3d-hover">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "../layout/auth.html" %}
+
+{% block content %}
+  <div class="col-md-7 col-lg-6 mx-auto mt-5 mt-lg-0">
+    <div class="px-3 pb-3">
+      {% include "alert.html" %}
+      <form class="mt-5" action="/login?_csrf={{csrfToken}}" method="post">
+        <div class="mb-7">
+          <h2 class="h3 text-primary font-weight-normal mb-0">Welcome back</h2>
+          <p>Log in to manage your appointments.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signinSrEmail">Email</label>
+          <input type="email" class="form-control" name="email" id="signinSrEmail" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signinSrPassword">
+            Password
+          </label>
+          <input type="password" class="form-control" name="password" id="signinSrPassword" placeholder="********" required>
+        </div>
+
+        <div class="row align-items-center mb-5">
+          <div class="col-6">
+            <span class="small text-muted">Don't have an account?</span>
+            <a class="small" href="/register">Signup</a>
+          </div>
+
+          <div class="col-6 text-right">
+            <button type="submit" class="btn btn-primary btn-sm transition-3d-hover">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

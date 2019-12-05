@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Node-Espress</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600&display=swap" rel="stylesheet">
+    {% block styling %}
+
+    {% endblock %}
+    <link href="/assets/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/custom.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header id="header" class="u-header">
+      <div class="u-header__section">
+        <div id="logoAndNav" class="container">
+          <!-- Nav -->
+          <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--no-space hs-menu-initialized hs-menu-horizontal">
+            <!-- Logo -->
+            <a class="text-dark" href="/">
+              <h3 class="font-weight-bold">Node-Espress</h3>
+            </a>
+            <!-- End Logo -->
+
+            <!-- Responsive Toggle Button -->
+            <button type="button" class="navbar-toggler btn u-hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+              <span id="hamburgerTrigger" class="u-hamburger__box">
+                <span class="u-hamburger__inner"></span>
+              </span>
+            </button>
+            <!-- End Responsive Toggle Button -->
+
+            <!-- Navigation -->
+            <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
+              <ul class="navbar-nav u-header__navbar-nav ml-auto">
+                <li class="nav-item u-header__nav-item">
+                  <a class="nav-link u-header__nav-link
+                    {{ 'active' if active == 'projects' }}" href="/projects">Projects</a>
+                </li>
+                <li class="nav-item u-header__nav-item">
+                  <a class="nav-link u-header__nav-link
+                    {{ 'active' if active == 'admins' }}" href="/admins">Admins</a>
+                </li>
+                <li class="nav-item u-header__nav-item">
+                  <a class="nav-link u-header__nav-link
+                    {{ 'active' if active == 'profile' }}" href="/admins/profile">Profile</a>
+                </li>
+                <li class="nav-item u-header__nav-last-item">
+                  <form class="dropdown-item p-0" method="post" action="/logout"/>
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <button type="submit" class="btn btn-sm btn-primary transition-3d-hover"
+                      onclick="return confirm('Are you sure you want to do thi?')">
+                      <i class="fas fa-power-off mr-2"></i>
+                      <span>Logout</span>
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+            <!-- End Navigation -->
+          </nav>
+          <!-- End Nav -->
+        </div>
+      </div>
+    </header>
+    <!-- ========== END HEADER ========== -->
+
+    <!-- ========== MAIN ========== -->
+    <main id="content" role="main">
+      {% block content %}
+
+      {% endblock %}
+    </main>
+    <!-- ========== END MAIN ========== -->
+    <!-- JS Global Compulsory -->
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="/assets/vendor/bootstrap/bootstrap.min.js"></script>
+    {% block scripting %}
+
+    {% endblock %}
+  </body>
+  
+</html>

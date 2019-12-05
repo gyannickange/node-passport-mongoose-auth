@@ -1,0 +1,15 @@
+{% if errors.length > 0 %}
+  {% for error in errors %}
+  <div class="alert alert-danger text-center" role="alert">
+    <p class="mb-0">{{error}}</p>
+  </div>
+  {% endfor %}
+{% endif %}
+
+{% if messages.length > 0 %}
+  {% for msg in messages %}
+  <div class="alert alert-success text-center" role="alert">
+    <p class="mb-0">{{msg}}</p>
+  </div>
+{% endfor %}
+{% endif %}

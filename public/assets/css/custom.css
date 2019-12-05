@@ -1,0 +1,145 @@
+.stepwizard-step p {
+  margin-top: 10px;
+}
+
+.stepwizard-row {
+  display: table-row;
+}
+
+.stepwizard {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+
+.stepwizard-step button[disabled] {
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+  top: 14px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.stepwizard-step {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+  min-width: 100px;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 15px;
+  background-color: #ffffff;
+  border-color: #377dff;
+  color: #377dff;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+}
+
+.has-error .form-control {
+  box-shadow: 0 0 25px rgba(222, 68, 55, 0.1);
+  border-color: rgba(222, 68, 55, 0.5);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.vdp-datepicker input {
+  display: block;
+  width: 100%;
+  height: calc(3rem + 2px);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1e2022;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d5dae2;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.vdp-datepicker__calendar .cell.selected {
+  background: #377dff !important;
+  color: #fff !important;
+  border-radius: 7px;
+}
+
+.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
+.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
+.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
+  border: 1px solid #387dff !important;
+  color: #387dff !important;
+  border-radius: 7px;
+}
+
+.vdp-datepicker__calendar .cell {
+  font-size: 0.875rem;
+}
+
+.vdp-datepicker__calendar .cell.selected:hover {
+  background: #377dff;
+  color: #fff !important;
+}
+
+.vdp-datepicker__calendar header .prev:after {
+  border-right: 10px solid #77838f !important;
+}
+
+.vdp-datepicker__calendar header .next:after {
+  border-left: 10px solid #77838f !important;
+}
+
+body {
+  background-color: #f8f9fa !important;
+}
+
+.u-header__nav-link.active {
+  color: #377dff;
+}

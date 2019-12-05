@@ -1,0 +1,60 @@
+{% set active = "admins" %}
+{% extends "../layout/layout.html" %}
+
+{% block styling %}
+{% endblock %}
+
+{% block content %}
+<!-- Breadcrumb Section -->
+<div class="bg-primary">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-7 order-lg-1">
+        <!-- User Info -->
+        <div class="media d-block d-sm-flex align-items-sm-center">
+          <div class="media-body">
+            <h1 class="h3 text-white font-weight-medium mb-1">{{user.lastname}}, {{user.firstname}}</h1>
+            <span class="d-block text-white">{{user.email}}</span>
+          </div>
+        </div>
+        <!-- End User Info -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb Section -->
+
+<!-- Content Section -->
+<div class="bg-light">
+  <div class="col-sm-10 col-md-5 col-lg-5 mx-auto space-2">
+    {% include "alert.html" %}
+    <div class="card">
+      <div class="card-body p-4">
+        <form class="form-signin has-info" action="/admins/new" method="post">
+          <div class="form-group">
+            <label for="inputfirstname" class="bmd-label-floating">First name</label>
+            <input type="text" id="inputfirstname" name="firstname" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="inputlastname" class="bmd-label-floating">Last name</label>
+            <input type="text" id="inputlastname" name="lastname" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="inputemail" class="bmd-label-floating">Email</label>
+            <input type="text" id="inputemail" name="email" class="form-control" required>
+          </div>
+          <div class="form-group text-center">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button class="btn btn-sm btn-primary btn-block text-uppercase" type="submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripting %}
+<script>
+</script>
+{% endblock %}

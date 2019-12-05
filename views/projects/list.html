@@ -1,0 +1,120 @@
+{% set active = "projects" %}
+{% extends "../layout/layout.html" %}
+
+{% block styling %}
+{% endblock %}
+
+{% block content %}
+<div class="bg-primary">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-7">
+        <!-- User Info -->
+        <div class="media d-block d-sm-flex align-items-sm-center">
+          <div class="media-body">
+            <h1 class="h3 text-white font-weight-medium mb-1">{{user.lastname}}, {{user.firstname}}</h1>
+            <span class="d-block text-white">{{user.email}}</span>
+          </div>
+        </div>
+        <!-- End User Info -->
+      </div>
+
+      <div class="col-lg-5 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+          <a class="btn btn-sm btn-soft-white transition-3d-hover" href="/projects/new">
+            <i class="fas fa-plus small mr-2"></i>
+            New Project
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Content Section -->
+<div class="bg-light">
+  <div class="container space-2">
+    <div class="card">
+      <div class="card-body p-4">
+        <!-- Nav -->
+        <div class="row justify-content-between align-items-center mb-4">
+          <div class="col-md-5 order-md-2 text-md-right mb-3 mb-md-0">
+            
+          </div>
+
+          <div class="col-md-7 order-md-1">
+          
+          </div>
+        </div>
+        <!-- End Nav -->
+        {% include "alert.html" %}
+        <div class="table-responsive-md u-datatable">
+          {% if projects.length > 0 %}
+            <table
+              class="table table-borderless table-striped">
+              <thead>
+                <tr class="text-muted text-uppercase font-size-1" role="row">
+                  <th scope="col" class="font-weight-medium">
+                    #
+                  </th>
+                  <th scope="col" class="font-weight-medium">
+                    Name
+                  </th>
+                  <th scope="col" class="font-weight-medium">
+                    Description
+                  </th>
+                  <th scope="col" class="font-weight-medium">
+                    Created at
+                  </th>
+                  <th scope="col" class="font-weight-medium"></th>
+                </tr>
+              </thead>
+              <tbody class="font-size-1">
+                {% for project in projects %}
+                  <tr role="row">
+                    <td class="align-middle font-weight-normal">
+                      {{loop.index}}
+                    </td>
+                    <td class="align-middle">
+                      {{project.name}}
+                    </td>
+                    <td class="align-middle">
+                      {{project.description}}
+                    </td>
+                    <td class="align-middle">
+                      <span class="fas fa-circle text-primary small mr-1"></span>
+                      {{project.createdAt | prettyDate}}
+                    </td>
+                    <td class="align-middle">
+                      <a class="btn btn-primary btn-xs" href="/projects/edit/{{project._id}}">
+                        <i class="far fa-eye"></i>
+                      </a>
+                      <form class="form-inline d-inline-block"
+                        data-toggle="tooltip" data-placement="top" title="Delete"
+                        method="post" action="/projects/remove/{{project._id}}">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <button type="submit"
+                          onclick="return confirm('Are you sure you want to do this?')"
+                          class="btn btn-soft-danger btn-xs">
+                          <i class="fas fa-user-times mr-0"></i>
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <div class="text-center text-danger">No admin available.</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripting %}
+<script>
+</script>
+{% endblock %}
