@@ -1,5 +1,5 @@
 {
-  "name": "wp-user-admin",
+  "name": "node-passport-mongoose-auth",
   "version": "0.0.0",
   "private": true,
   "scripts": {
